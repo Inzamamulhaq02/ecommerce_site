@@ -23,40 +23,22 @@ def product_detail(request, pk):
 
 
   
+  # Adjust the import based on your app structure
+
 def add_to_cart(request, pk):
     product = get_object_or_404(Product, pk=pk)
     
     # Ensure the quantity is provided in the POST request
     quantity = int(request.POST.get('quantity', 1))  # Default to 1 if not provided
-    
-    if request.user.is_authenticated:
-        cart_item, created = CartItem.objects.get_or_create(user=request.user, product=product)
-        
-    else:
-        # Handle session-based cart for anonymous users
-        # You can implement session-based cart handling here
 
-        # Example session handling (basic)
-        if quantity > product.stock_quantity:
-        # Handle the case where requested quantity exceeds available stock
-            return render(request, 'product_detail.html', {
-                'product': product,
-                'error_message': 'Requested quantity exceeds available stock.'
-            })
-
-        cart = request.session.get('cart', {})
-        
-        if str(product.pk) in cart:
-            cart[str(product.pk)]['quantity'] += quantity
-            print(cart)
-        else:
-            cart[str(product.pk)] = {'quantity': quantity, 'price': str(product.price)}
-        request.session['cart'] = cart
-        return redirect('product_list')
+    # Retrieve or create the CartItem object
+    cart_item, created = CartItem.objects.get_or_create(user=request.user, product=product)
     
+    # Update the quantity
     cart_item.quantity += quantity
     cart_item.save()
-    messages.success(request, 'Your Product has Added to Cart')
+
+    messages.success(request, 'Your Product has been added to the cart')
     return redirect('cart_view')
 
 
