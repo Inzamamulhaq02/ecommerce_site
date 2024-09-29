@@ -1,8 +1,8 @@
 asgiref
+Django>=4.2,<5.0
+mysqlclient==2.2.4
 crispy-bootstrap5
-Django
 django-crispy-forms
-mysqlclient
 pillow
 sqlparse
 tzdata
