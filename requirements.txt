@@ -1,6 +1,5 @@
 asgiref
 Django>=4.2,<5.0
-mysqlclient==2.2.4
 crispy-bootstrap5
 django-crispy-forms
 pillow
