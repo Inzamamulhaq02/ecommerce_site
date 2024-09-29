@@ -61,10 +61,7 @@ MIDDLEWARE = [
 
 # settings.py
 
-import django
 
-# Ensure connections are closed when requests are done
-django.db.connection.close()
 
 
 
