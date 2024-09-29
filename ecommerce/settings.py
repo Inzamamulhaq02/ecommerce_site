@@ -84,13 +84,42 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "bzynluexqfmjzzx56a06",
+        "USER": "uvgsxkjsgzb8tff8",
+        "PASSWORD": "d7nY06ZOoh1N8SCTB5SI",
+        "HOST": "bzynluexqfmjzzx56a06-mysql.services.clever-cloud.com",
+        "PORT": "3306",
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'djongo',
+#         'NAME': 'test1',
+#         'ENFORCE_SCHEMA': False,
+#         'CLIENT': {
+#             'host': 'mongodb+srv://nousemail00000:JU0nmkDhHaDNXVdf@cluster0.k8eui.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', # Replace with your MongoDB server address
+#             'port': 27017,               # Replace with your MongoDB port if different
+#             'username': 'nousemail00000', # Replace with your MongoDB username (optional)
+#             'password': 'JU0nmkDhHaDNXVdf', # Replace with your MongoDB password (optional)
+#             # 'authSource': 'SCRAM', # Replace with your MongoDB authentication database (optional)
+#         },
+        
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
