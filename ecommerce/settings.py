@@ -81,6 +81,43 @@ TEMPLATES = [
 WSGI_APPLICATION = 'ecommerce.wsgi.application'
 
 
+import os
+import dj_database_url
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'bzynluexqfmjzzx56a06',
+        'USER': 'uvgsxkjsgzb8tff8',
+        'PASSWORD': 'd7nY06ZOoh1N8SCTB5SI',
+        'HOST': 'bzynluexqfmjzzx56a06-mysql.services.clever-cloud.com',
+        'PORT': '3306',
+    }
+}
+
+# Optionally, override using dj_database_url if DATABASE_URL is set in the environment
+DATABASES['default'] = dj_database_url.parse(
+    "mysql://uvgsxkjsgzb8tff8:d7nY06ZOoh1N8SCTB5SI@bzynluexqfmjzzx56a06-mysql.services.clever-cloud.com:3306/bzynluexqfmjzzx56a06",
+    conn_max_age=600,
+    ssl_require=True
+)
+MYSQL_ATTR_SSL_CA='/etc/ssl/cert.pem'
+# Set the charset and SSL options
+DATABASES['default']['OPTIONS'] = {
+    'charset': 'utf8mb4',
+    'ssl': {'ca': os.environ.get('/etc/ssl/cert.pem')}
+}
+
+
+
+
+
+
+
+
+
+
+
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
@@ -94,16 +131,16 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 # }
 
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "bzynluexqfmjzzx56a06",
-        "USER": "uvgsxkjsgzb8tff8",
-        "PASSWORD": "d7nY06ZOoh1N8SCTB5SI",
-        "HOST": "bzynluexqfmjzzx56a06-mysql.services.clever-cloud.com",
-        "PORT": "3306",
-    }
-}
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.mysql",
+#         "NAME": "bzynluexqfmjzzx56a06",
+#         "USER": "uvgsxkjsgzb8tff8",
+#         "PASSWORD": "d7nY06ZOoh1N8SCTB5SI",
+#         "HOST": "bzynluexqfmjzzx56a06-mysql.services.clever-cloud.com",
+#         "PORT": "3306",
+#     }
+# }
 
 # DATABASES = {
 #     'default': {
