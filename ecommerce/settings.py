@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-#wsp11da(_awb*n))su4q&8z&_%e42%&@vz3gl$ydv7ru+ll^x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.vercel.app']
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
