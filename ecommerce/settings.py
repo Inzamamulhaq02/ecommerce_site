@@ -30,7 +30,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['.vercel.app']
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
-
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 # Application definition
 
@@ -57,6 +57,15 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
+# settings.py
+
+import django
+
+# Ensure connections are closed when requests are done
+django.db.connection.close()
+
 
 
 ROOT_URLCONF = 'ecommerce.urls'
